@@ -1,0 +1,542 @@
+[
+    {
+        "id": "5e7d8b12cae1b7fd",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9a25308a99b31812",
+        "type": "serial in",
+        "z": "5e7d8b12cae1b7fd",
+        "name": "Controllino",
+        "serial": "907778f1f90735a1",
+        "x": 100,
+        "y": 60,
+        "wires": [
+            [
+                "9536dbfa91cd9cd1"
+            ]
+        ]
+    },
+    {
+        "id": "9536dbfa91cd9cd1",
+        "type": "json",
+        "z": "5e7d8b12cae1b7fd",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 270,
+        "y": 60,
+        "wires": [
+            [
+                "3c5494e229d928cd",
+                "5cf02afdae8fbae8",
+                "dcc7be7a971b324b",
+                "592b2b0dae0ef793",
+                "163bb915551d8850"
+            ]
+        ]
+    },
+    {
+        "id": "3c5494e229d928cd",
+        "type": "function",
+        "z": "5e7d8b12cae1b7fd",
+        "name": "function 6",
+        "func": "var obj = msg.payload\nmsg.payload = obj.dens;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 120,
+        "wires": [
+            [
+                "6be6e3be1169f158"
+            ]
+        ]
+    },
+    {
+        "id": "5cf02afdae8fbae8",
+        "type": "function",
+        "z": "5e7d8b12cae1b7fd",
+        "name": "function 7",
+        "func": "var obj = msg.payload\nmsg.payload = obj.flow;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 180,
+        "wires": [
+            [
+                "f5a2ea5d889db3b7",
+                "00629a9c4df219ba"
+            ]
+        ]
+    },
+    {
+        "id": "dcc7be7a971b324b",
+        "type": "function",
+        "z": "5e7d8b12cae1b7fd",
+        "name": "function 8",
+        "func": "var obj = msg.payload\nmsg.payload = obj.temp;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 240,
+        "wires": [
+            [
+                "73d1fa8b8a01cc4c",
+                "4852bc2687887f3d"
+            ]
+        ]
+    },
+    {
+        "id": "6be6e3be1169f158",
+        "type": "ui_chart",
+        "z": "5e7d8b12cae1b7fd",
+        "name": "",
+        "group": "087f2e39c2c1342b",
+        "order": 1,
+        "width": "6",
+        "height": "4",
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "10",
+        "removeOlderPoints": "600",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 810,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f5a2ea5d889db3b7",
+        "type": "ui_chart",
+        "z": "5e7d8b12cae1b7fd",
+        "name": "",
+        "group": "9baae455f4fe1c2c",
+        "order": 1,
+        "width": "6",
+        "height": "4",
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "10",
+        "removeOlderPoints": "600",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 810,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "592b2b0dae0ef793",
+        "type": "debug",
+        "z": "5e7d8b12cae1b7fd",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "73d1fa8b8a01cc4c",
+        "type": "ui_chart",
+        "z": "5e7d8b12cae1b7fd",
+        "name": "",
+        "group": "d02684c7cfc52fa0",
+        "order": 1,
+        "width": "6",
+        "height": "4",
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "10",
+        "removeOlderPoints": "600",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 810,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "eff9d8a60e5d08c0",
+        "type": "ui_switch",
+        "z": "5e7d8b12cae1b7fd",
+        "name": "Data logging",
+        "label": "DATALOG OFF/ON",
+        "tooltip": "",
+        "group": "9baae455f4fe1c2c",
+        "order": 3,
+        "width": "3",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "control",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "open",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "close",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 270,
+        "y": 340,
+        "wires": [
+            [
+                "163bb915551d8850"
+            ]
+        ]
+    },
+    {
+        "id": "163bb915551d8850",
+        "type": "gate",
+        "z": "5e7d8b12cae1b7fd",
+        "name": "",
+        "controlTopic": "control",
+        "defaultState": "closed",
+        "openCmd": "open",
+        "closeCmd": "close",
+        "toggleCmd": "toggle",
+        "defaultCmd": "default",
+        "statusCmd": "status",
+        "persist": false,
+        "storeName": "memory",
+        "x": 450,
+        "y": 340,
+        "wires": [
+            [
+                "2583c5e40f49a86c",
+                "af44945b4e573f61"
+            ]
+        ]
+    },
+    {
+        "id": "2583c5e40f49a86c",
+        "type": "csv",
+        "z": "5e7d8b12cae1b7fd",
+        "name": "",
+        "spec": "rfc",
+        "sep": ";",
+        "hdrin": "",
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "flow,dens,temp",
+        "skip": "0",
+        "strings": false,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 650,
+        "y": 400,
+        "wires": [
+            [
+                "63f3eef4e6874122",
+                "c87ad680b4fd5e62"
+            ]
+        ]
+    },
+    {
+        "id": "af44945b4e573f61",
+        "type": "debug",
+        "z": "5e7d8b12cae1b7fd",
+        "name": "debug 4",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "63f3eef4e6874122",
+        "type": "file",
+        "z": "5e7d8b12cae1b7fd",
+        "name": "FEAT.csv",
+        "filename": "C:\\Users\\erkkiras\\Documents\\FEAT.csv",
+        "filenameType": "str",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 820,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c87ad680b4fd5e62",
+        "type": "debug",
+        "z": "5e7d8b12cae1b7fd",
+        "name": "debug 6",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "00629a9c4df219ba",
+        "type": "ui_gauge",
+        "z": "5e7d8b12cae1b7fd",
+        "name": "",
+        "group": "a6803ad0af7427d5",
+        "order": 1,
+        "width": "2",
+        "height": "2",
+        "gtype": "gage",
+        "title": "FLOW",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 970,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "4852bc2687887f3d",
+        "type": "ui_gauge",
+        "z": "5e7d8b12cae1b7fd",
+        "name": "",
+        "group": "a6803ad0af7427d5",
+        "order": 2,
+        "width": "2",
+        "height": "2",
+        "gtype": "gage",
+        "title": "TEMPERATURE",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1010,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "c3cce12ff4cca567",
+        "type": "ui_spacer",
+        "z": "5e7d8b12cae1b7fd",
+        "name": "spacer",
+        "group": "a6803ad0af7427d5",
+        "order": 3,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "907778f1f90735a1",
+        "type": "serial-port",
+        "name": "COM",
+        "serialport": "COM7",
+        "serialbaud": "9600",
+        "databits": 8,
+        "parity": "none",
+        "stopbits": 1,
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": 10000
+    },
+    {
+        "id": "087f2e39c2c1342b",
+        "type": "ui_group",
+        "name": "FLOW",
+        "tab": "aee91b21c820816e",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "9baae455f4fe1c2c",
+        "type": "ui_group",
+        "name": "DENSITY",
+        "tab": "3d645e6c6bb95842",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d02684c7cfc52fa0",
+        "type": "ui_group",
+        "name": "TEMPERATURE",
+        "tab": "1a5f9d62623521e7",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a6803ad0af7427d5",
+        "type": "ui_group",
+        "name": "",
+        "tab": "3d645e6c6bb95842",
+        "order": 2,
+        "disp": true,
+        "width": "2",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "aee91b21c820816e",
+        "type": "ui_tab",
+        "name": "FLOW",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "3d645e6c6bb95842",
+        "type": "ui_tab",
+        "name": "CONTROL",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "1a5f9d62623521e7",
+        "type": "ui_tab",
+        "name": "TEMPERATURE",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    }
+]
