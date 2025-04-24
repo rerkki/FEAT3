@@ -1,5 +1,542 @@
 [
     {
+        "id": "5d277d01aad20088",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "99edfc8b4f3b875b",
+        "type": "serial in",
+        "z": "5d277d01aad20088",
+        "name": "Controllino",
+        "serial": "907778f1f90735a1",
+        "x": 180,
+        "y": 60,
+        "wires": [
+            [
+                "a38b8c92a6738d45"
+            ]
+        ]
+    },
+    {
+        "id": "a38b8c92a6738d45",
+        "type": "json",
+        "z": "5d277d01aad20088",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 330,
+        "y": 60,
+        "wires": [
+            [
+                "ce0fd05cfe87200e",
+                "a5726aa08c8e142c"
+            ]
+        ]
+    },
+    {
+        "id": "3a7d14d77ec9c5b1",
+        "type": "function",
+        "z": "5d277d01aad20088",
+        "name": "function 6",
+        "func": "var msg1 = {};\nvar msg2 = {};\nvar obj = msg.payload;\nmsg.payload = obj.dens;\nmsg.topic = \"Density\";\nmsg1.payload = 800;\nmsg1.topic = \"Ymin\";\nmsg2.payload = 1200;\nmsg2.topic = \"Ymax\";\nreturn [msg, msg1, msg2];",
+        "outputs": 3,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 120,
+        "wires": [
+            [
+                "6537707fbcd310da"
+            ],
+            [
+                "6537707fbcd310da"
+            ],
+            [
+                "6537707fbcd310da"
+            ]
+        ]
+    },
+    {
+        "id": "9ebe1388078d35d6",
+        "type": "function",
+        "z": "5d277d01aad20088",
+        "name": "function 7",
+        "func": "var obj = msg.payload\nmsg.payload = obj.flow;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 180,
+        "wires": [
+            [
+                "b1e7f21284955707",
+                "c56947af73570102"
+            ]
+        ]
+    },
+    {
+        "id": "1514c79c2d7a0148",
+        "type": "function",
+        "z": "5d277d01aad20088",
+        "name": "function 8",
+        "func": "var obj = msg.payload\nmsg.payload = obj.temp;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 240,
+        "wires": [
+            [
+                "21e57f5ecf104a21",
+                "affec8352f9fe712"
+            ]
+        ]
+    },
+    {
+        "id": "c56947af73570102",
+        "type": "ui_chart",
+        "z": "5d277d01aad20088",
+        "name": "",
+        "group": "087f2e39c2c1342b",
+        "order": 1,
+        "width": "6",
+        "height": "4",
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "10",
+        "removeOlderPoints": "600",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1050,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6537707fbcd310da",
+        "type": "ui_chart",
+        "z": "5d277d01aad20088",
+        "name": "",
+        "group": "9baae455f4fe1c2c",
+        "order": 1,
+        "width": "6",
+        "height": "4",
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "10",
+        "removeOlderPoints": "600",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": true,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#2b2b2b",
+            "#2b2b2b",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1050,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d5a2c66c52e92e13",
+        "type": "debug",
+        "z": "5d277d01aad20088",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 900,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "21e57f5ecf104a21",
+        "type": "ui_chart",
+        "z": "5d277d01aad20088",
+        "name": "",
+        "group": "d02684c7cfc52fa0",
+        "order": 1,
+        "width": "6",
+        "height": "4",
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "10",
+        "removeOlderPoints": "600",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1050,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c1e88a522d342dfd",
+        "type": "ui_switch",
+        "z": "5d277d01aad20088",
+        "name": "Data logging",
+        "label": "DATALOG OFF/ON",
+        "tooltip": "",
+        "group": "9baae455f4fe1c2c",
+        "order": 3,
+        "width": "1",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "control",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "open",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "close",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 510,
+        "y": 340,
+        "wires": [
+            [
+                "ce0fd05cfe87200e"
+            ]
+        ]
+    },
+    {
+        "id": "ce0fd05cfe87200e",
+        "type": "gate",
+        "z": "5d277d01aad20088",
+        "name": "",
+        "controlTopic": "control",
+        "defaultState": "closed",
+        "openCmd": "open",
+        "closeCmd": "close",
+        "toggleCmd": "toggle",
+        "defaultCmd": "default",
+        "statusCmd": "status",
+        "persist": false,
+        "storeName": "memory",
+        "x": 690,
+        "y": 340,
+        "wires": [
+            [
+                "1bb47d14ee644fa8",
+                "41d698855acde242"
+            ]
+        ]
+    },
+    {
+        "id": "1bb47d14ee644fa8",
+        "type": "csv",
+        "z": "5d277d01aad20088",
+        "name": "",
+        "spec": "rfc",
+        "sep": ";",
+        "hdrin": "",
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "flow,dens,temp",
+        "skip": "0",
+        "strings": false,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 890,
+        "y": 400,
+        "wires": [
+            [
+                "831f37cf46d865ef",
+                "ac63a116e3d0775f"
+            ]
+        ]
+    },
+    {
+        "id": "41d698855acde242",
+        "type": "debug",
+        "z": "5d277d01aad20088",
+        "name": "debug 4",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 900,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "831f37cf46d865ef",
+        "type": "file",
+        "z": "5d277d01aad20088",
+        "name": "FEAT.csv",
+        "filename": "/home/eki/Desktop/FEAT.csv",
+        "filenameType": "str",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1060,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ac63a116e3d0775f",
+        "type": "debug",
+        "z": "5d277d01aad20088",
+        "name": "debug 6",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1060,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "b1e7f21284955707",
+        "type": "ui_gauge",
+        "z": "5d277d01aad20088",
+        "name": "",
+        "group": "a6803ad0af7427d5",
+        "order": 1,
+        "width": "2",
+        "height": "2",
+        "gtype": "gage",
+        "title": "FLOW",
+        "label": "kg/min",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "9.5",
+        "seg2": "9.8",
+        "diff": false,
+        "className": "",
+        "x": 1210,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "affec8352f9fe712",
+        "type": "ui_gauge",
+        "z": "5d277d01aad20088",
+        "name": "",
+        "group": "a6803ad0af7427d5",
+        "order": 2,
+        "width": "2",
+        "height": "2",
+        "gtype": "gage",
+        "title": "TEMPERATURE",
+        "label": "C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "90",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "30",
+        "seg2": "60",
+        "diff": false,
+        "className": "",
+        "x": 1250,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "c5fd3cd7b561ccb8",
+        "type": "timer-node",
+        "z": "5d277d01aad20088",
+        "name": "",
+        "topic": "",
+        "timer": "3600",
+        "payloadOn": "true",
+        "payloadOnType": "bool",
+        "payloadOff": "false",
+        "payloadOffType": "bool",
+        "x": 350,
+        "y": 600,
+        "wires": [
+            [],
+            [
+                "868665579d550f85"
+            ]
+        ]
+    },
+    {
+        "id": "868665579d550f85",
+        "type": "function",
+        "z": "5d277d01aad20088",
+        "name": "TIMER",
+        "func": "var t = 3600 - msg.payload;\nmsg.payload = t;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 600,
+        "wires": [
+            [
+                "f99f96cfe12ef83e"
+            ]
+        ]
+    },
+    {
+        "id": "4a37929fb0622556",
+        "type": "ui_switch",
+        "z": "5d277d01aad20088",
+        "name": "",
+        "label": "TIMER ON/OFF",
+        "tooltip": "",
+        "group": "9baae455f4fe1c2c",
+        "order": 0,
+        "width": "1",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 140,
+        "y": 600,
+        "wires": [
+            [
+                "c5fd3cd7b561ccb8"
+            ]
+        ]
+    },
+    {
+        "id": "f99f96cfe12ef83e",
+        "type": "ui_text",
+        "z": "5d277d01aad20088",
+        "group": "9baae455f4fe1c2c",
+        "order": 0,
+        "width": "1",
+        "height": "1",
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-right",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 710,
+        "y": 600,
+        "wires": []
+    },
+    {
         "id": "a5726aa08c8e142c",
         "type": "function",
         "z": "5d277d01aad20088",
@@ -21,5 +558,106 @@
                 "1514c79c2d7a0148"
             ]
         ]
+    },
+    {
+        "id": "01687710eafd829a",
+        "type": "ui_spacer",
+        "z": "5d277d01aad20088",
+        "name": "spacer",
+        "group": "a6803ad0af7427d5",
+        "order": 3,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "907778f1f90735a1",
+        "type": "serial-port",
+        "name": "FEAT",
+        "serialport": "/dev/ttyACM0",
+        "serialbaud": "9600",
+        "databits": 8,
+        "parity": "none",
+        "stopbits": 1,
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": 10000
+    },
+    {
+        "id": "087f2e39c2c1342b",
+        "type": "ui_group",
+        "name": "FLOW",
+        "tab": "aee91b21c820816e",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "9baae455f4fe1c2c",
+        "type": "ui_group",
+        "name": "DENSITY",
+        "tab": "3d645e6c6bb95842",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d02684c7cfc52fa0",
+        "type": "ui_group",
+        "name": "TEMPERATURE",
+        "tab": "1a5f9d62623521e7",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a6803ad0af7427d5",
+        "type": "ui_group",
+        "name": "",
+        "tab": "3d645e6c6bb95842",
+        "order": 2,
+        "disp": true,
+        "width": "2",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "aee91b21c820816e",
+        "type": "ui_tab",
+        "name": "FLOW",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "3d645e6c6bb95842",
+        "type": "ui_tab",
+        "name": "CONTROL",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "1a5f9d62623521e7",
+        "type": "ui_tab",
+        "name": "TEMPERATURE",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
     }
 ]
